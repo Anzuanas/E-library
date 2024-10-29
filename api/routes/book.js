@@ -1,10 +1,10 @@
 const router=require("express").Router();
-const Product = require("../models/Book");
+const Book = require("../models/Book");
 const {verifyToken,verifyTokenAndAuthorization, verifyTokenAndAdmin}=require("./verifyToken")
 
 //CREATE
 router.post("/",verifyTokenAndAdmin,async(req,res)=>{
-    const newProduct=new Product(req.body)
+    const newProduct=new Book(req.body)
 
     try{
         const savedProduct=await newProduct.save();
